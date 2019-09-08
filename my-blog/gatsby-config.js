@@ -1,11 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Filipe Marques`,
-    description: `Veja um pouco do que ando fazendo nesse planeta`,
+    title: `<Filipe Marques/>`,
+    position: `Frontend Developer`,
+    description: `Apaixonado por tecnologia, empreendedorismo e evolução pessoal`,
     author: `@FilipeNMarques`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,6 +16,20 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [],
+      },
+    },
+
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -29,6 +46,6 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }
