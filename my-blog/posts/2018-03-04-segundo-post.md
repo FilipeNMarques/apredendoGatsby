@@ -1,6 +1,6 @@
 ---
 date: 2018-03-04 12:53:10
-title: Aprendendo Gatsby
+title: Aprendendo Gatsby Xablau
 description: Vendo como o Gatsby e divertido
 category: Js
 background: "green"

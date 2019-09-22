@@ -1,6 +1,6 @@
 ---
 date: 2019-03-04 12:53:10
-title: Aprendendo Gatsby
+title: Xablau Gatsby
 description: Vendo como o Gatsby e divertido
 category: Misc
 background: "#7AAB13"

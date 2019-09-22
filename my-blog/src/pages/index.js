@@ -11,7 +11,7 @@ const IndexPage = () => {
       allMarkdownRemark {
         edges {
           node {
-            fields {
+            fields{
               slug
             }
             frontmatter {
@@ -22,6 +22,7 @@ const IndexPage = () => {
               title
             }
             timeToRead
+            
           }
         }
       }
@@ -41,16 +42,16 @@ const IndexPage = () => {
             fields: { slug },
           },
         }) => (
-          <PostItem
-            slug={slug}
-            background={background}
-            category={category}
-            date={date}
-            timeToRead={timeToRead}
-            title={title}
-            description={description}
-          />
-        )
+            <PostItem
+              slug={slug}
+              background={background}
+              category={category}
+              date={date}
+              timeToRead={timeToRead}
+              title={title}
+              description={description}
+            />
+          )
       )}
     </Layout>
   )
