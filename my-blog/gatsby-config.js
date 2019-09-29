@@ -1,3 +1,6 @@
+require("dotenv").config()
+
+const queries = require("./src/utils/algolia_queries")
 module.exports = {
   siteMetadata: {
     title: `<Filipe Marques/>`,
@@ -8,12 +11,11 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
-
-    //Needs to be  a the first to works with gatsby-image-remark  
+    // needs to be the first to work with gatsby-remark-images
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `uploades`,
+        name: `uploads`,
         path: `${__dirname}/static/assets/img`,
       },
     },
@@ -34,28 +36,40 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [{
-          resolve: "gatsby-remark-relative-images",
-          options: {
-            name: "uploads"
-          }
-        },
-        {
-          resolve: "gatsby-remark-images",
-          options: {
-            maxWidth: 960,
-            linkImagesToOriginal: false
+        plugins: [
+          {
+            resolve: "gatsby-remark-relative-images",
+            options: {
+              name: "uploads",
+            },
           },
-        },
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 960,
+              linkImagesToOriginal: false,
+            },
+          },
           `gatsby-remark-lazy-load`,
-          `gatsby-remark-prismjs`
+          `gatsby-remark-prismjs`,
         ],
       },
     },
-
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-plugin-algolia-search`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+        queries,
+        chunkSize: 10000, // default: 1000
+        enablePartialUpdates: true,
+      },
+    },
+    {
+
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
