@@ -1,6 +1,6 @@
 ---
 date: 2018-03-04 12:53:10
-title: Aprendendo Gatsby Xablau
+title: IMAGEM Gatsby Xablau
 description: Vendo como o Gatsby e divertido
 category: Js
 background: "green"
@@ -10,9 +10,28 @@ background: "green"
 
 Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, [adipiscing](http://google.com) eu pulvinar vel, sodales vitae dui. :thumbsup: :smile: :sparkler:
 
-```javascript
-a=3
-puts a
+![Desert](/assets/img/desert.jpg)
+
+```jsx
+import React from "react"
+
+//Styles
+import * as S from "./styled"
+
+//Components
+import Profile from "../Profile"
+import SocialLinks from "../SocialLinks"
+import MenuLinks from "../MenuLinks"
+
+const Sidebar = () => (
+  <S.SidebarWrapper>
+    <Profile />
+    <SocialLinks />
+    <MenuLinks />
+  </S.SidebarWrapper>
+)
+
+export default Sidebar
 ```
 
 ## Fusce a metus eu
